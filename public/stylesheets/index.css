@@ -1,0 +1,91 @@
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    
+    html,
+    body {
+        height: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        font-family: sans-serif;
+    }
+     a {
+        text-decoration: none;
+    }
+    #space {
+        width: 100%;
+        z-index: -10;
+    }
+    
+    #canvas-frame {
+        z-index: 0;
+        background: rgba(255, 255, 255, 0);
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    
+   #wrap {
+        width: 150px;
+        height: 240px;
+        position: absolute;
+        top: calc(50% - 100px);
+        left: calc(50% - 60px);
+        /*设置所有子元素在3D环境中展示*/
+        z-index: 5;
+        transform-style: preserve-3d;
+        transform: perspective(1000px) rotateX(-10deg) rotateY(0deg);
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+        display: none;
+    }
+    
+    #wrap .tagItem {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #fff;
+        transform: rotateY(0deg) translateZ(0px);
+        -webkit-box-reflect: below 20px -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, .5) 100%);
+        text-align: center;
+        line-height: 240px;
+        overflow: hidden;
+    }
+    
+    #wrap .tagItem > a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 26px;
+    }
+    
+    #wrap .tagItem .layer {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: -240px;
+        background: #fff;
+        transition: all 1s ease;
+    }
+    
+    #wrap .tagItem:hover .layer {
+        top: 0;
+    }
+    
+    #wrap #bottomSeat {
+        width: 1200px;
+        height: 1200px;
+        border-radius: 50%;
+        position: absolute;
+        top: calc(100% - 600px);
+        left: calc(50% - 600px);
+        background: radial-gradient(600px 600px, rgba(50, 50, 50, 1), rgba(0, 0, 0, 0));
+        transform: rotateX(-90deg);
+    }
