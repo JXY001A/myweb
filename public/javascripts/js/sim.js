@@ -133,7 +133,17 @@ Sim.App.prototype.init = function(param)
 //Core run loop
 Sim.App.prototype.run = function()
 {
+	if (this.mark) {
+		// 相机开始移动
+		var z=this.camera.position.z +=0.35;
+		if (z > 30 && z < 30.35) {
+			// 如果达到需要的条件，则执行的二次添加的click事件
+			this.renderer.domElement.click();
+			
+		}
+	}
 	this.update();
+	this.camera.lookAt( this.scene.position );
 	this.renderer.render( this.scene, this.camera );
 	var that = this;
 	requestAnimationFrame(function() { that.run(); });	

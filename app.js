@@ -5,42 +5,34 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-
+// 设置服务器端口号
+var port = 3000;
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
+// 设置视图文件资源路径
+app.set('views', path.join(__dirname, 'app/views'));
+// 将系统路径保存包本地变量中
+app.locals.dir = __dirname;
+// 指定模板引擎
 app.set('view engine', 'jade');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 app.use(logger('dev'));
+// 默认对异步传输的json数据格式化处理
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+// 对form表弟数据格式化处理
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+// 指定静态资源的加载路径，__dirname值当前的系统路径
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+// 设置监听端口号
+app.listen(port,function() {
+	console.log('程序运行在' + port + '端口');
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+
+require('./routes/router.js')(app);
 
 module.exports = app;

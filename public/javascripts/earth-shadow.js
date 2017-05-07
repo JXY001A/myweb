@@ -11,13 +11,9 @@ $(function() {
     // 加载完成后执行
     setUp();
 });
-// 监听窗口事件
-$(window).bind('resize',function(event) {
-    /* Act on the event */
-     setUp();
-});
+
 //启动函数 
-function setUp(){
+function setUp() {
     var container = document.getElementById("canvas-frame");
     $(container).css('height', window.innerHeight);
     $(container).css('width', window.innerWidth);
@@ -26,8 +22,43 @@ function setUp(){
         container: container
     });
     app.run();
+    // 监听窗口事件
+    $(window).bind('resize', function(event) {
+        /* Act on the event */
+        app.camera.aspect = window.innerWidth / window.innerHeight;
+        app.camera.updateProjectionMatrix();
+        app.renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+    //用于判断相机移动的标志，当canvas别点击之后，会被设置为true
+    app.mark = false;
+    // 为canvas注册点击事件
+    canvasClick(app);
 }
 
+// camera
+function canvasClick(app) {
+    // 获取canvas
+    var Canvas = app.renderer.domElement;
+    Canvas.style.cursor = 'pointer';
+    $(Canvas).bind('click', function(event) {
+        // 点击后处理
+        app.mark = true;
+        // 解绑当前的click事件，同时重新绑定新的clicks事件
+        $(Canvas).unbind('click').bind('click', function(e) {
+            // 隐藏canvas
+            Canvas.style.display = 'none';
+            $("#wrap").css('display','block');
+            // 调用在indexTagHow中挂在到window下的tagShow方法
+           setTimeout(function (){
+             window.tagShow();
+           },200)
+        });
+    });
+}
+
+
+
+// end camera 
 var EarthApp = function() {
     Sim.App.call(this);
 }
@@ -35,7 +66,18 @@ var EarthApp = function() {
 EarthApp.prototype = new Sim.App();
 //开始初始整个程序中的常量
 EarthApp.prototype.init = function(param) {
-
+        this.mouseX = 0;
+        this.mouseY = 0;
+        this.cameraX = 0;
+        this.cameraY = 0;
+        this.windowHalfX = window.innerWidth / 2;
+        this.windowHalfY = window.innerHeight / 2;
+        var that = this;
+        document.addEventListener('mousemove', function(e) {
+            that.mouseX = (e.clientX - that.windowHalfX) / 2;
+            that.mouseY = (e.clientY - that.windowHalfY) / 2;
+        }, false);
+        //顶一个鼠标移动值的记录
         Sim.App.prototype.init.call(this, param);
         //创建地球
         var earth = new Earth();
@@ -56,6 +98,7 @@ var Earth = function() {
 Earth.prototype = new Sim.Object();
 
 Earth.prototype.init = function() {
+
     //生成一个包含地球，云层的群组
     var earthGoroup = new THREE.Object3D();
     //将群组添加到框架中
@@ -68,11 +111,11 @@ Earth.prototype.init = function() {
 
 Earth.prototype.createGlobe = function() {
         //加载地球颜色纹理
-        var surfaceMap = THREE.ImageUtils.loadTexture('../public/images/earth_surface_2048.jpg');
+        var surfaceMap = THREE.ImageUtils.loadTexture('webGL/img1');
         //加载法线贴图
-        var normalMap = THREE.ImageUtils.loadTexture("../public/images/earth_normal_2048.jpg");
+        var normalMap = THREE.ImageUtils.loadTexture("webGL/img2");
         //加载高光贴图，描绘地球反光度
-        var specularMap = THREE.ImageUtils.loadTexture("../public/images/earth_specular_2048.jpg");
+        var specularMap = THREE.ImageUtils.loadTexture("webGL/img3");
         //使用shader工具类（使用法线贴图着色器）
 
         var shader = THREE.ShaderUtils.lib['normal'];
@@ -92,7 +135,7 @@ Earth.prototype.createGlobe = function() {
         });
 
         //生成球体
-        var globeGeometry = new THREE.SphereGeometry(.5, 32, 32);
+        var globeGeometry = new THREE.SphereGeometry(.6, 32, 32);
         //为着色器计算法线
         globeGeometry.computeTangents();
         var globeMesh = new THREE.Mesh(globeGeometry, material);
@@ -102,14 +145,14 @@ Earth.prototype.createGlobe = function() {
     }
     //创建云层
 Earth.prototype.createClouds = function() {
-        var cloudsMap = THREE.ImageUtils.loadTexture('../public/images/earth_clouds_1024.png');
+        var cloudsMap = THREE.ImageUtils.loadTexture('webGL/img4');
         //生成云层材质
         var material = new THREE.MeshLambertMaterial({
             color: 0xffffff,
             map: cloudsMap,
             transparent: true
         });
-        var cloudsGeometry = new THREE.SphereGeometry(.6, 32, 32);
+        var cloudsGeometry = new THREE.SphereGeometry(.7, 32, 32);
         var cloudsMesh = new THREE.Mesh(cloudsGeometry, material);
         this.object3D.add(cloudsMesh);
         this.cloudsMesh = cloudsMesh;
