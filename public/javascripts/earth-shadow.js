@@ -111,11 +111,11 @@ Earth.prototype.init = function() {
 
 Earth.prototype.createGlobe = function() {
         //加载地球颜色纹理
-        var surfaceMap = THREE.ImageUtils.loadTexture('webGL/img1');
+        var surfaceMap = THREE.ImageUtils.loadTexture('webGL/earth_surface_2048.jpg');
         //加载法线贴图
-        var normalMap = THREE.ImageUtils.loadTexture("webGL/img2");
+        var normalMap = THREE.ImageUtils.loadTexture("webGL/earth_normal_2048.jpg");
         //加载高光贴图，描绘地球反光度
-        var specularMap = THREE.ImageUtils.loadTexture("webGL/img3");
+        var specularMap = THREE.ImageUtils.loadTexture("webGL/earth_specular_2048.jpg");
         //使用shader工具类（使用法线贴图着色器）
 
         var shader = THREE.ShaderUtils.lib['normal'];
@@ -145,7 +145,7 @@ Earth.prototype.createGlobe = function() {
     }
     //创建云层
 Earth.prototype.createClouds = function() {
-        var cloudsMap = THREE.ImageUtils.loadTexture('webGL/img4');
+        var cloudsMap = THREE.ImageUtils.loadTexture('webGL/earth_clouds_1024.png');
         //生成云层材质
         var material = new THREE.MeshLambertMaterial({
             color: 0xffffff,
