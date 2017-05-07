@@ -32,7 +32,7 @@ app.listen(port,function() {
 });
 
 
-
+// 加载路由控制模块
 require('./routes/router.js')(app);
 
 module.exports = app;
