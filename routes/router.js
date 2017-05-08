@@ -14,14 +14,20 @@ module.exports = function(app) {
 	var Resourse = require('../app/controller/resourse.js');
 	// 博客l路基处理模块控制
 	var Blog = require('../app/controller/blog.js');
+	// 用户模块
+	var User = require('../app/controller/user.js');
 
 	// 首页控制逻辑
 	app.get('/',Index.index);
 
 	// 博客路由控制
 	app.get('/blog/index' , Blog.blogIndex);
+	app.get('/blog/essays' , Blog.blogEssays);
 
-	
+	// 用户路由控制
+	app.get('/user/signIn' , User.signIn);
+	app.get('/user/signUp' , User.signUp);
+
 	// webGL静态资源加载路径
 	app.get('/webGL/:name', Resourse.image);
 
