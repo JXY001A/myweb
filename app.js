@@ -4,6 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongooseCon = require('./config/mongooseConnect.js');
+// 连接mogodb数据库
+mongooseCon.mogooseConnect();
 
 // 设置服务器端口号
 var port = 3000;
