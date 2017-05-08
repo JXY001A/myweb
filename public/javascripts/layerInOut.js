@@ -13,17 +13,31 @@ var Layer = (function($) {
     }
 
     function getDirect(ev, obj) {
+        var w = $(obj).outerWidth();
+        var h = $(obj).outerHeight();
+        var xpos = w/2;
+        var ypos = h/2;
+        var oe = ev || event;
+        var x = oe.offsetX;
+        var y = oe.offsetY;
+        var angle = Math.atan((x - xpos) / (y - ypos)) * 180 / Math.PI;
+        if (angle > -45 && angle < 45 && y > ypos) {
+            direct = 2;
+        }
+        if (angle > -45 && angle < 45 && y < ypos) {
+            direct = 0;
+        }
+        if (((angle > -90 && angle < -45) || (angle > 45 && angle < 90)) && x > xpos) {
+            direct = 1;
+        }
+        if (((angle > -90 && angle < -45) || (angle > 45 && angle < 90)) && x < xpos) {
+            direct = 3;
+        }
 
-        var w = obj.offsetWidth;
-        var h = obj.offsetHeight;
-        var x = (ev.pageX - obj.offsetLeft - (w / 2)) * (w > h ? (h / w) : 1);
-        var y = (ev.pageY - obj.offsetTop - (h / 2)) * (h > w ? (w / h) : 1);
-        var direction = Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4;
-        
         return {
             width: w,
             height: h,
-            dir: direction
+            dir: direct
         };
 
     }
@@ -93,8 +107,5 @@ var Layer = (function($) {
         }
     }
     // 自动调用初始化
-    initLayer();
-    return {
-        initLayer:initLayer
-    };
+    return { layerinit: initLayer }
 })(jQuery);
