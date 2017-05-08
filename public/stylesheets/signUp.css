@@ -1,0 +1,70 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+
+#logingBox {
+    width: 300px;
+    height: 340px;
+    position: absolute;
+    top: calc(50% - 150px);
+    left: calc(50% - 170px);
+}
+
+#logingBox div:first-child {
+    width: 50%;
+    margin: 0 auto;
+    height: 65px;
+    border: solid 1px red;
+    /*display: none;*/
+}
+
+#logingBox .inputBox {
+    /*display: none;*/
+    width: 100%;
+    height: 40px;
+    background: rgba(225, 225, 225, .17);
+    line-height: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, .3);
+    display: none;
+}
+
+#logingBox .inputBox i {
+    margin-left: 7px;
+    font-size: 22px;
+    color: rgba(255, 255, 255, .7);
+}
+
+#logingBox .inputBox input {
+    width: 260px;
+    height: 40px;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    text-indent: 1em;
+    background: transparent;
+    color: #fff;
+}
+
+#logingBox .inputBox:last-child {
+    text-align: center;
+    border-bottom: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#logingaction:hover i {
+    color: mediumseagreen;
+}
+
+
+/*画布样式*/
+
+#c {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+    z-index: -1;
+}
