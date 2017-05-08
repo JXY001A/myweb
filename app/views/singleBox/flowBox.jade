@@ -1,0 +1,61 @@
+each item in essays
+  .flowBox
+    .imgBox
+      img(src='#{item.faceImg}')
+    |                     
+    .itemTitlie
+      a(href='javascript:void(0)') #{item.essayTitli}
+    |                     
+    .itemAuthor
+      | Author:
+      a(href='javascript:void(0);') JXY001A
+    |                     
+    .itemContent
+      .itemDesc &#x7B80;&#x4ECB;&#xFF1A;
+      |                         
+      p
+        | #{item.desc}
+    |                     
+    .layer
+      ul
+        li
+          i.iconfont.icon-weibiaoti1
+          |                                 
+          a(href='javascript:void(0);', style='color: #ae0b9a;')
+            | #{item.essayTitli}
+        |                             
+        li
+          i.iconfont.icon-articleUser
+          |                                 
+          a(href='javascript:void(0);')
+            | JXY001A
+        |                             
+        li
+          i.iconfont.icon-chakan
+          |                                 
+          a(href='javascript:void(0);')
+            | (10)
+        |                             
+        li
+          i.iconfont.icon-dianzan
+          |                                 
+          a(href='javascript:void(0);')
+            | (20)
+        |                             
+        li
+          i.iconfont.icon-zhizhulaiyuan
+          |                                 
+          a(href='javascript:void(0);', style='color: #ae0b9a;')
+            | www.asdf.com
+        |                             
+        li
+          i.iconfont.icon-xiangqing
+          |                                 
+          a(href='javascript:void(0);', style='color:#ae0b9a;')
+            | &#x8BE6;&#x60C5;
+        |                             
+        li
+          i.iconfont.icon-pinglun
+          |                                 
+          a(href='javascript:void(0);')
+            | (5)
