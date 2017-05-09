@@ -1,7 +1,7 @@
 var Layer = (function($) {
 
-    function initLayer() {
-        $('.flowBox').on('mouseenter mouseleave', function(e) {
+    function initLayer(className) {
+        $(className).on('mouseenter mouseleave', function(e) {
             var obj = getDirect(e, this);
             var divLayer = $(this).find('.layer')[0];
             if (e.type == 'mouseenter') {
