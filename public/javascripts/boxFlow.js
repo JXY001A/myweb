@@ -18,92 +18,102 @@ $(function() {
 	initPositionArr();
 	// 数据加载
 	function loadData() {
+		// 当开始加载数据的时候，解除滚动加载
+		$(window).unbind('scroll');
+		// 使用get方法请求数据
 		$.get('/blog/essays', {
 			page: pageNum
 		}, function(data) {
-			waterContainer.append(data);
-			// document.getElementById('waterFlow-left').innerHTML+=data;
-			// data.forEach(function(obj, i) {
-			// 	index = i;
-			// 	waterContainer.append("<div class='flowBox' id=flowBox" + pageNum + i + ">" +
-			// 		"                    <div class='imgBox'>" +
-			// 		"                        <img src='" + obj.faceImg + "'>" +
-			// 		"                    </div>" +
-			// 		"                    <div class='itemTitlie'>" +
-			// 		"                        <a href='javascript:void(0)'>" + obj.essayTitli + "</a>" +
-			// 		"                    </div>" +
-			// 		"                    <div class='itemAuthor'>" +
-			// 		"                        Author:" +
-			// 		"                        <a href='javascript:void(0);'>JXY001A</a>" +
-			// 		"                    </div>" +
-			// 		"                    <div class='itemContent'>" +
-			// 		"                        <div class='itemDesc'>简介：</div>" +
-			// 		"                        <p>" + obj.desc +
-			// 		"                        </p>" +
-			// 		"                    </div>" +
-			// 		"                    <div class='layer'>" +
-			// 		"                        <ul>" +
-			// 		"                            <li>" +
-			// 		"                                <i class='iconfont icon-weibiaoti1' ></i>" +
-			// 		"                                <a href='javascript:void(0);' style='color: #ae0b9a;'>" + obj.essayTitli +
-			// 		"                                </a>" +
-			// 		"                            </li>" +
-			// 		"                            <li>" +
-			// 		"                                <i class='iconfont icon-articleUser' ></i>" +
-			// 		"                                <a href='javascript:void(0);'>" +
-			// 		"                                    JXY001A" +
-			// 		"                                </a>" +
-			// 		"                            </li>" +
-			// 		"                            <li>" +
-			// 		"                                <i class='iconfont icon-chakan' ></i>" +
-			// 		"                                <a href='javascript:void(0);'>" +
-			// 		"                                    (10)" +
-			// 		"                                </a>" +
-			// 		"                            </li>" +
-			// 		"                            <li>" +
-			// 		"                                <i class='iconfont icon-dianzan' ></i>" +
-			// 		"                                <a href='javascript:void(0);'>" +
-			// 		"                                    (20)" +
-			// 		"                                </a>" +
-			// 		"                            </li>" +
-			// 		"                            <li>" +
-			// 		"                                <i class='iconfont icon-zhizhulaiyuan' ></i>" +
-			// 		"                                <a href='javascript:void(0);' style='color: #ae0b9a;'>" +
-			// 		"                                    www.asdf.com" +
-			// 		"                                </a>" +
-			// 		"                            </li>" +
-			// 		"                            <li>" +
-			// 		"                                <i class='iconfont icon-xiangqing' ></i>" +
-			// 		"                                <a href='javascript:void(0);' style='color:#ae0b9a;'>" +
-			// 		"                                    详情" +
-			// 		"                                </a>" +
-			// 		"                            </li>" +
-			// 		"                            <li>" +
-			// 		"                                <i class='iconfont icon-pinglun' ></i>" +
-			// 		"                                <a href='javascript:void(0);' >" +
-			// 		"                                    (5)" +
-			// 		"                                </a>" +
-			// 		"                            </li>" +
-			// 		"                        </ul>" +
-			// 		"                    </div>" +
-			// 		"                </div");
-			// });
-			// 得到刚被添加的Dom元素
-			var boxDom = $('#flowBox' + pageNum + index);
-			// 判断图片是否加载完成（加载完成则执行毁掉函数）
-			boxDom.find('img').bind('load', function(event) {
-				// 获取高度最低的位置索引
-				var minIndex = getMinIndex();
-				var boxHeight = $(boxDom).outerHeight();
-				// console.log(boxHeight);
-				boxDom.animate({
-					left: arrLeft[minIndex],
-					top: arrTop[minIndex]},
-					'slow', function() {
-					/* stuff to do after animation is complete */
+			// waterContainer.append(data);
+			if ( data == 'finished') {
+				$(window).unbind('scroll');
+			} else {
+				data.forEach(function(obj, i) {
+					index = i;
+					waterContainer.append("<div class='flowBox' id=flowBox" + pageNum + i + ">" +
+						"                    <div class='imgBox'>" +
+						"                        <img src='" + obj.faceImg + "'>" +
+						"                    </div>" +
+						"                    <div class='itemTitlie'>" +
+						"                        <a href='javascript:void(0)'>" + obj.essayTitli + "</a>" +
+						"                    </div>" +
+						"                    <div class='itemAuthor'>" +
+						"                        Author:" +
+						"                        <a href='javascript:void(0);'>JXY001A</a>" +
+						"                    </div>" +
+						"                    <div class='itemContent'>" +
+						"                        <div class='itemDesc'>简介：</div>" +
+						"                        <p>" + obj.desc +
+						"                        </p>" +
+						"                    </div>" +
+						"                    <div class='layer'>" +
+						"                        <ul>" +
+						"                            <li>" +
+						"                                <i class='iconfont icon-weibiaoti1' ></i>" +
+						"                                <a href='javascript:void(0);' style='color: #ae0b9a;'>" + obj.essayTitli +
+						"                                </a>" +
+						"                            </li>" +
+						"                            <li>" +
+						"                                <i class='iconfont icon-articleUser' ></i>" +
+						"                                <a href='javascript:void(0);'>" +
+						"                                    JXY001A" +
+						"                                </a>" +
+						"                            </li>" +
+						"                            <li>" +
+						"                                <i class='iconfont icon-chakan' ></i>" +
+						"                                <a href='javascript:void(0);'>" +
+						"                                    (10)" +
+						"                                </a>" +
+						"                            </li>" +
+						"                            <li>" +
+						"                                <i class='iconfont icon-dianzan' ></i>" +
+						"                                <a href='javascript:void(0);'>" +
+						"                                    (20)" +
+						"                                </a>" +
+						"                            </li>" +
+						"                            <li>" +
+						"                                <i class='iconfont icon-zhizhulaiyuan' ></i>" +
+						"                                <a href='javascript:void(0);' style='color: #ae0b9a;'>" +
+						"                                    www.asdf.com" +
+						"                                </a>" +
+						"                            </li>" +
+						"                            <li>" +
+						"                                <i class='iconfont icon-xiangqing' ></i>" +
+						"                                <a href='javascript:void(0);' style='color:#ae0b9a;'>" +
+						"                                    详情" +
+						"                                </a>" +
+						"                            </li>" +
+						"                            <li>" +
+						"                                <i class='iconfont icon-pinglun' ></i>" +
+						"                                <a href='javascript:void(0);' >" +
+						"                                    (5)" +
+						"                                </a>" +
+						"                            </li>" +
+						"                        </ul>" +
+						"                    </div>" +
+						"                </div");
+					// 得到刚被添加的Dom元素
+					var boxDom = $('#flowBox' + pageNum + index);
+					// 判断图片是否加载完成（加载完成则执行毁掉函数）
+					boxDom.find('img').bind('load', function(event) {
+						// 获取高度最低的位置索引
+						var minIndex = getMinIndex();
+						var boxHeight = $(boxDom).outerHeight();
+						// console.log(boxHeight);
+						boxDom.animate({
+								left: arrLeft[minIndex],
+								top: arrTop[minIndex]
+							},
+							'slow',
+							function() {
+								/* stuff to do after animation is complete */
+							});
+						arrTop[minIndex] += boxHeight + space;
+					});
 				});
-				arrTop[minIndex]+=boxHeight + space;
-			});;
+			}
+			// 当数据加载完成之后再将滚动加载重新绑定到window对象上面
+			$(window).bind('scroll', scrollLoadData);
 			Layer.layerinit();
 		});
 	}
@@ -130,16 +140,20 @@ $(function() {
 		});
 		return index;
 	}
+	// 滚动加载实现
+	function scrollLoadData(e) {
+		var viewScreenTop = $(window).scrollTop() + $(window).innerHeight();
+		var flowBoxHeight = waterContainer.offset().top + arrTop[getMinIndex()];
+		if (viewScreenTop > flowBoxHeight) {
+			pageNum += 1;
+			console.log(viewScreenTop,flowBoxHeight);
+			loadData();
+		}
+	}
+	// 默认首页进入时加载一次
 	loadData();
 
 	// 滚动加载
-	$(window).on('scroll' , function (e){
-		var viewScreenTop = $(window).scrollTop()+$(window).innerHeight();
-		var flowBoxHeight = waterContainer.offset().top + arrTop[getMinIndex()];
-		if (viewScreenTop > flowBoxHeight) {
-			pageNum+=1;
-			loadData();
-		}
-	});
+	$(window).bind('scroll', scrollLoadData);
 
 });
