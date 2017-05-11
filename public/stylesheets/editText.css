@@ -1,0 +1,79 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: '微软雅黑';
+}
+
+#title {
+    text-align: center;
+    margin: 26px auto;
+}
+
+#textEdit {
+    width: 75%;
+    height: 500px;
+    margin: 50px auto;
+    max-height: 800px;
+}
+
+#text {
+    min-height: 550px;
+}
+
+#textEdit .textInput {
+    width: 100%;
+    height: 30px;
+    text-indent: none;
+    outline: none;
+    text-indent: 26px;
+}
+
+#textEdit .inputBox {
+    width: 100%;
+    margin-top: 13px;
+    font-size: 13px;
+    color: #666;
+}
+
+#textEdit .inputBox p {
+    padding-bottom: 13px;
+}
+
+#submit {
+    width: 100%;
+    height: 39px;
+    margin: 39px 0 50px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+#submit .layer {
+    text-align: center;
+    background: #DDD;
+    height: 39px;
+    line-height: 39px;
+    cursor: pointer;
+}
+
+#submit input {
+    width: 100%;
+    height: 39px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+    color: #fff;
+    top: 39px;
+    background-image: -webkit-linear-gradient(left, #43e97b 0%, #38f9d7 100%);
+    background-image: -o-linear-gradient(left, #43e97b 0%, #38f9d7 100%);
+    background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+    -webkit-transition: all .4s cubic-bezier(0.88, -0.17, 1, 0.98);
+    -moz-transition: all .4s cubic-bezier(0.88, -0.17, 1, 0.98);
+    -o-transition: all .4s cubic-bezier(0.88, -0.17, 1, 0.98);
+    transition: all .4s cubic-bezier(0.88, -0.17, 1, 0.98);
+}
+#submit:hover input{
+    top: 0;
+}
