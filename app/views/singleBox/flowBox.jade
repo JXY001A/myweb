@@ -4,7 +4,7 @@ each item in essays
       img(src='#{item.faceImg}')
     |                     
     .itemTitlie
-      a(href='javascript:void(0)') #{item.essayTitli}
+      a(href='javascript:void(0);') #{item.essayTitli}
     |                     
     .itemAuthor
       | Author:
@@ -21,7 +21,7 @@ each item in essays
         li
           i.iconfont.icon-weibiaoti1
           |                                 
-          a(href='javascript:void(0);', style='color: #ae0b9a;')
+          a(href='/blog/#{item._id}', style='color: #ae0b9a;')
             | #{item.essayTitli}
         |                             
         li
@@ -51,7 +51,7 @@ each item in essays
         li
           i.iconfont.icon-xiangqing
           |                                 
-          a(href='javascript:void(0);', style='color:#ae0b9a;')
+          a(href='/blog/#{item._id}', style='color:#ae0b9a;')
             | &#x8BE6;&#x60C5;
         |                             
         li
