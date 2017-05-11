@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title 感谢上传您的文章
+    <link rel="stylesheet" type="text/css" href="../../libs/wangEditor/dist/css/wangEditor.min.css">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/editText.css">
+    body
+      #title 
+        h2 
+          感谢您为该论坛添砖加瓦
+      #textEdit
+        form(method='post',action='')
+          textarea#text
+            p 请输入内容……
+          div.inputBox
+            p 请输入文章标题
+            input.textInput(type='text',placeholder='请输入文章的标题')
+          div.inputBox
+            p 请输入文章简介
+            input.textInput(type='text',placeholder='请输入文章的简介')
+          #submit
+            .layer 提交
+            input(type='submit',value = '提交')
+
+      <script type="text/javascript" src="../../libs/wangEditor/dist/js/lib/jquery-1.10.2.min.js"></script>
+      <script type="text/javascript" src="../../libs/wangEditor/dist/js/wangEditor.min.js"></script>
+      script(type='text/javascript').
+        var editor = new wangEditor('text');
+        editor.create();
+
+

@@ -1,0 +1,71 @@
+extends layout
+
+block content
+  // 左侧瀑布流
+  #waterFlow-left
+    link(href='../stylesheets/essay.css', rel='stylesheet')
+    #article
+      #articleTitle
+        #title
+          h1 文章标题
+      #articleMess
+        #auther.articMess
+         i.iconfont.icon-articleUser
+         span JXY001
+        #articleTime.articMess
+          i.iconfont.icon-shijian
+          span 2017-5-9
+        #comForm.articMess 来源：
+          a(href='javascript:void(0)') www.jxy-java.com
+      #artcleContent.
+        desc
+    #comment
+      .commentTitle
+        h3 说点什么吧..
+      #form  
+        textarea#commnetInput(placeholder='想说就说点什么吧…………',cols=5,rols=40)
+        div.inputSub
+          .submit#submit 提交
+      .commentTitle
+        h3 用户评论
+      #commentContent
+        .userComment
+          .commentMess
+            .userImg.cMess
+              img(src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494477805838&di=ec7b4379916af53a020425f6643cd241&imgtype=0&src=http%3A%2F%2Fimg1.2345.com%2Fduoteimg%2FqqTxImg%2F2013%2F12%2Fka_3%2F01-013925_774.jpg')
+            .userName.cMess
+              i.iconfont.icon-articleUser
+              span jxy001
+            .commentTime.cMess
+              i.iconfont.icon-shijian
+              span 2017-5-11
+          .commentCon
+            .comm.
+              评论dfgsdfg 阿斯顿法国发到
+            a.toReply(href='#commnetInput') 回复
+          .replayBack 
+            .repCommentMess
+              .repUserImg.repCMess
+                img(src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494477805838&di=ec7b4379916af53a020425f6643cd241&imgtype=0&src=http%3A%2F%2Fimg1.2345.com%2Fduoteimg%2FqqTxImg%2F2013%2F12%2Fka_3%2F01-013925_774.jpg')
+              .repUserName.repCMess
+                i.iconfont.icon-articleUser
+                span jxy001 &nbsp;
+                span(style='color:blue;') 回复 
+                span &nbsp;撒旦法
+              .preCommentTime.repCMess
+                i.iconfont.icon-shijian
+                span 2017-5-11
+            .repCommentCon
+              .repComm.
+                评论dfgsdfg 阿斯顿法国发到
+            a.reToReply(href='#commnetInput') 回复
+
+
+
+  // 右侧菜单 引入
+  include component/meau
+  script(type='text/javascript', src='../javascripts/jquery.js')
+  script(type='text/javascript',src='../javascripts/meauBtn.js')
+  script(type='text/javascript',src='../javascripts/btnAnimate.js')
+  script(type='text/javascript', src='../javascripts/commentAjax.js')
+
