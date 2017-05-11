@@ -28,14 +28,14 @@ exports.blogEssays = function(req, res) {
         if (err) {
             console.log(err);
         }
-       if (essays.length) {
-             res.render('singleBox/flowBox', {
+        if (essays.length) {
+            res.render('singleBox/flowBox', {
                 essays: essays,
                 pageNum: page
             });
-         }else{
+        } else {
             res.send('finished');
-         }
+        }
     });
 
     // var img3 = 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1494229863028&di=364b6940a756bef3d0ee308ce788734b&imgtype=0&src=http%3A%2F%2Fauctions.c.yimg.jp%2Fimages.auctions.yahoo.co.jp%2Fimage%2Fra177%2Fusers%2F7%2F9%2F2%2F4%2Fhawozuki-img600x403-1429700946zzdrvs23108.jpg';
@@ -44,7 +44,7 @@ exports.blogEssays = function(req, res) {
     // obj.essayTitli = 'hello worls';
     //    obj.desc =  "hello world hello worldhello worldhello worldhello worldhello worldhello worldhello worldhello worldhello worldhell你好比你好比你好你好比你好你好比你好你好比你好你好比你好你好比你好你好你好比你好你好比你好你好比你好你好比你好";
     //    obj.content =  '你好比你好你好比你好你好比你好你好比你好';
-    //   	for(var i=0;i<2;i+=1){
+    //      for(var i=0;i<2;i+=1){
     //        obj.faceImg =  arr[Math.ceil(i%3)];
     //        var essay = new Essay(obj);
     //        essay.save(function(error, essay) {
@@ -55,6 +55,20 @@ exports.blogEssays = function(req, res) {
     // }
     //    res.send('finished');
     // $.get('/blog/essyas',{num:1,skip:6},function(data) {
-    // 	alert(data);
+    //  alert(data);
     // });
+}
+
+// 文章详情页
+exports.essayShow = function(req, res) {
+    var essayId = req.params.id;
+    Essay.findById(essayId, function(err, result) {
+        if (err) {
+            console.log(err);
+        }
+        res.render('essay');
+    });
+}
+exports.essayUpload = function(req, res) {
+    res.render('essayUpload');
 }
