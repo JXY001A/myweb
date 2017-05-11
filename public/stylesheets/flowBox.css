@@ -1,0 +1,131 @@
+
+
+/*瀑布流盒子*/
+
+#waterFlow-left .flowBox {
+    /*实际的width等于200px*/
+    width: 230px;
+    height:auto;  
+    padding: 7px;
+    border-radius: 2px;
+    font-size: 13px;
+    color: #ccc;
+    position: absolute;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 0 4px #000;
+}
+
+#waterFlow-left .flowBox .imgBox {}
+
+#waterFlow-left .flowBox .imgBox img {
+    width: 100%;
+    display: block;
+}
+
+#waterFlow-left .flowBox .itemTitlie {
+    padding: 4px 0;
+}
+
+#waterFlow-left .flowBox .itemTitlie a:hover {
+    color: red;
+}
+
+#waterFlow-left .flowBox .itemTitlie a {
+    font-size: 16px;
+    color: #555;
+}
+
+#waterFlow-left .flowBox .itemAuthor {
+    font-size: 13px;
+    padding: 4px 0;
+    color: #555;
+}
+
+#waterFlow-left .flowBox .itemAuthor a {
+    color: #28ac73;
+}
+
+#waterFlow-left .flowBox .itemContent {
+    line-height: 18px;
+}
+
+#waterFlow-left .flowBox .itemContent .itemDesc {
+    color: #555;
+}
+
+#waterFlow-left .flowBox .itemContent p {
+    color: #555;
+    text-indent: 26px;
+}
+
+#waterFlow-left .flowBox .layer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 7px;
+    color: #fff;
+    background: rgba(200, 200, 200, .8);
+    border-radius: 2px;
+}
+
+#waterFlow-left .flowBox .layer ul {
+    width: 100%;
+    height: 100%;
+}
+
+#waterFlow-left .flowBox .layer ul li {
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    font-size: 16px
+}
+
+#waterFlow-left .flowBox .layer ul li a {
+    color: #fff;
+    margin-left: 3px;
+}
+
+#waterFlow-left .flowBox .layer ul li i {
+    font-size: 20px;
+    color: rgb(60, 60, 60);
+}
+/* 显示数据正在加载的状态图样式*/
+#showLoad{
+    width: 100%;
+    height: 50px;
+    background: rgba(255,255,255,.85);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: none;
+    text-align: center;
+    line-height: 50px;
+    font-size: 16px;
+    color: red;
+    font-weight: 600;
+}
+
+#content #showLoad #imgBox{
+    width: 100px;
+    height: 100%;
+    margin: 10px auto;
+    padding: 0 60px;
+}
+@media screen and (max-width: 790px) {
+    #waterFlow-left .flowBox {
+        width: 100%;
+        padding: 7px;
+        border-radius: 2px;
+        font-size: 13px;
+        color: #ccc;
+        /*position: relative;*/
+        /*float:left;*/
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 0 4px #000;
+        height: auto;
+    }
+}

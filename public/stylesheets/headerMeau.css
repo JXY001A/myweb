@@ -1,0 +1,274 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: '微软雅黑';
+}
+
+body {
+    background: #F4F0F1;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+li {
+    list-style: none;
+}
+
+::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: #28ac73;
+}
+
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #28ac73;
+}
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #28ac73;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: #28ac73;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+#body_container {
+    padding: 0 60px;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+
+/*header 样式区域*/
+
+#header {
+    color: #555;
+    padding: 30px 0 31px 0;
+    border-bottom: solid 1px #28ac73;
+    margin: 32px auto;
+    text-align: left;
+    position: relative;
+}
+
+#header #sitName {
+    position: relative;
+}
+
+#header #sitName .connectEmail {
+    color: #ccc;
+}
+
+#header #sitName #signInUp {
+    position: absolute;
+    top: 0;
+    left: 90%;
+    width: 10%;
+}
+
+#header #sitName #signInUp .sign {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    text-align: right;
+    color: #555;
+}
+
+#header #nav_meau {
+    width: 240px;
+    height: 30px;
+    float: right;
+}
+
+#header #nav_meau a {
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    width: 80px;
+    text-align: center;
+    line-height: 30px;
+    color: #444;
+    font-size: 13px;
+    -webkit-transition: all .1s cubic-bezier(0.88, -0.17, 1, 0.98);
+    -moz-transition: all .1s cubic-bezier(0.88, -0.17, 1, 0.98);
+    -o-transition: all .1s cubic-bezier(0.88, -0.17, 1, 0.98);
+    transition: all .1s cubic-bezier(0.88, -0.17, 1, 0.98);
+}
+
+#header #nav_meau .current {
+    border: solid 1px #28ac73;
+    border-bottom-color: #F4F0F1;
+    color: #28ac73;
+}
+
+
+/*内容区域*/
+
+#content {
+    margin-top: 51px;
+    position: relative;
+    height: auto;
+}
+
+
+/*右侧 Meau样式区域*/
+
+#meau-right {
+    width: 23.45%;
+    height: auto;
+    border-left: solid 1px #28ac73;
+    float: right;
+    height: 800px;
+}
+
+#meau-right #search {
+    height: 70px;
+}
+
+#meau-right #meauControl {
+    padding-left: 7%;
+}
+
+#meau-right #searchInput {
+    outline: none;
+    width: 75%;
+    height: 28px;
+    border-radius: 5px;
+    box-shadow: none;
+    border: solid 1px #bbb;
+    line-height: 28px;
+    text-indent: 28px;
+    color: #28ac73;
+    /*所用图片为编码好的搜索图标*/
+    background: #fff 8px 8px no-repeat url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6%2BR8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAG11AABzoAAA%2FN0AAINkAABw6AAA7GgAADA%2BAAAQkOTsmeoAAAESSURBVHjajNCxS9VRGMbxz71E4OwgoXPQxVEpXCI47%2BZqGP0LCoJO7UVD3QZzb3SwcHB7F3Uw3Zpd%2FAPCcJKG7Dj4u%2FK7Pwp94HDg5Xyf5z1Pr9YKImKANTzFXxzjU2ae6qhXaxURr%2FAFl9hHDy%2FwEK8z89sYVEp5gh84wMvMvGiSJ%2FEV85jNzLMR1McqfmN5BEBmnmMJFSvtpH7jdJiZv7q7Z%2BZPfMdcF6rN%2FT%2F1m2LGBkd4HhFT3dcRMY2FpskxaLNpayciHrWAGeziD7b%2BVfkithuTk8bkGa4wgWFmbrSTZOYeBvjc%2BucQj%2FEe6xHx4Taq1nrnKaW8K6XUUsrHWuvNevdRRLzFGwzvDbXAB9cDAHvhedDruuxSAAAAAElFTkSuQmCC)
+}
+
+#meau-right #searchBtn {
+    font-size: 13px;
+    color: #28ac73;
+    margin-left: 1%;
+}
+
+#meauControl #classify {
+    height: 80px;
+}
+
+#meauControl .meauTitle {
+    height: 39px;
+    border-bottom: solid 1px #28ac73;
+    line-height: 39px;
+}
+
+#meauControl .meauTitle a {
+    color: #28ac73;
+    font-size: 16px;
+}
+
+#meauControl .content {
+    margin-top: 13px;
+}
+
+#meauControl .content .classTitle {
+    float: left;
+    padding: 0 10px;
+    font-size: 16px;
+    height: 26px;
+    line-height: 26px;
+    color: #555;
+}
+
+#newArticle {
+    height: auto;
+    margin-top: 26px;
+}
+
+#newArticle .articleList {
+    margin-top: 13px;
+}
+
+#newArticle .articleList .item1 {
+    color: #555;
+    line-height: 26px;
+    /*font-size: 13px;*/
+}
+
+#newArticle .articleList .item1 a {
+    font-size: 13px;
+    color: #555;
+}
+
+#newArticle .articleList .item1 a:hover {
+    color: #000;
+}
+
+#meauControl #latestComment {
+    margin-top: 13px;
+}
+
+#meauControl #latestComment .commentshow {
+    margin-top: 13px;
+    color: #555;
+    font-size: 13px;
+}
+
+#meauControl #frienConn {
+    margin-top: 13px;
+}
+
+#meauControl #frienConn #github {
+    margin-top: 13px;
+}
+
+#meauControl #frienConn #github a {
+    color: #28ac73;
+    font-size: 18px;
+}
+
+#meauControl #frienConn #github a:hover {
+    color: #5b28ac;
+}
+
+
+/*左侧瀑布流 样式区域*/
+
+#waterFlow-left {
+    width: 76.55%;
+    height: auto;
+    float: left;
+    position: relative;
+}
+
+
+/*简单的响应式*/
+
+@media screen and (max-width: 790px) {
+    #waterFlow-left {
+        width: 100%;
+        height: auto;
+        height: 300px;
+        position: relative;
+    }
+    #meau-right {
+        display: none;
+    }
+    #header #nav_meau {
+        width: 240px;
+        height: 30px;
+        position: absolute;
+        bottom: 1px;
+        left: calc(50% - 120px);
+    }
+    #header #nav_meau .current {
+        border: solid 1px #28ac73;
+        border-bottom-color: #F4F0F1;
+        color: #28ac73;
+    }
+}
