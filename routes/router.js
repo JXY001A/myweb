@@ -23,6 +23,8 @@ module.exports = function(app) {
 	// 博客路由控制
 	app.get('/blog/index' , Blog.blogIndex);
 	app.get('/blog/essays' , Blog.blogEssays);
+	app.get('/blog/:id' , Blog.essayShow);
+	app.get('/blog/essay/Uplaod', Blog.essayUpload);
 
 	// 用户路由控制
 	app.get('/user/signIn' , User.signIn);
