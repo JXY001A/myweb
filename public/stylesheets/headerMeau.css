@@ -6,8 +6,10 @@
 
 body {
     background: #F4F0F1;
+    height: 100%;
 }
-
+html,body{height:100%; width:100%;  margin:0;
+padding:0;}
 a {
     text-decoration: none;
     color: #000;
@@ -57,6 +59,8 @@ div {
     margin: 32px auto;
     text-align: left;
     position: relative;
+    height: 125px;
+    /*border: solid 1px green;*/
 }
 
 #header #sitName {
@@ -69,11 +73,28 @@ div {
 
 #header #sitName #signInUp {
     position: absolute;
+    width: 100%;
     top: 0;
     left: 90%;
     width: 10%;
 }
-
+#header #sitName #signUser {
+    width: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 25px;
+}
+#header #sitName #signUser:hover{
+     border: solid 1px red;
+}
+#header #sitName #signUser > img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
 #header #sitName #signInUp .sign {
     display: inline-block;
     width: 50%;
@@ -109,7 +130,69 @@ div {
     color: #28ac73;
 }
 
-
+#userPanel{
+    position: fixed;
+    right: -300px;
+    top: 0;
+    width: 300px;
+    background:#28ac73;
+    z-index: 10;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+}
+#userPanel.clickShow{
+    right: 0px;
+}
+#userPanel #rightCom{
+    float: left;
+    margin-left: 13px;
+    /*color: #fff;*/
+    font-size: 20px;
+    cursor: pointer;
+}
+#userPanel .userHandleList{
+    width: 100%;
+    margin: 0 auto;
+    height: 60px;
+    font-size: 16px;
+    line-height: 60px;
+    text-align: left;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+#userPanel .userHandleList .userName{
+    color: #fff;
+    font-size: 20px;
+}
+#userPanel .userHandleList .btnBox{
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+#userPanel  .userHeader > img{
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    display: block;
+    margin: 0 auto;
+}
+#userPanel  .btnName{
+    font-size: 16px;
+    display: block;
+    width: 70%;
+    text-align: center;
+    float: right;
+    color: #fff;
+}
+#userPanel .userHandleList i{
+    /*color: #ddd;*/
+    font-size:25px;
+}
 /*内容区域*/
 
 #content {
