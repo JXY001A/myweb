@@ -13,12 +13,11 @@
     left: calc(50% - 170px);
 }
 
-#logingBox div:first-child {
+#logingBox #logoBox {
     width: 50%;
     margin: 0 auto;
     height: 65px;
     border: solid 1px red;
-    /*display: none;*/
 }
 
 #logingBox .inputBox {
@@ -54,11 +53,31 @@
     border-radius: 4px;
     cursor: pointer;
 }
-
+#logingaction{
+    position: relative;
+}
 #logingaction:hover i {
     color: mediumseagreen;
 }
-
+#logingaction input{
+    width: 300px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+#vertifiy{
+    position: relative;
+}
+#vertifiy #yanzheng{
+    cursor: pointer;
+    color:mediumseagreen;
+    /*color: #fff;*/
+}
+#vertifiy #yanzheng:hover{
+    color: #fff;
+}
 
 /*画布样式*/
 

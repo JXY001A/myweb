@@ -12,53 +12,57 @@ html
   #logingBox
     #logoBox
       img(src='')
-    |     
-    #nickName.inputBox(style='margin-left: -400px;')
-      i.iconfont.icon-nicheng(style='color: #3CB371;')
-      |         
-      input#nickname(type='text', data-name='nickname', placeholder='请输入昵称', maxlength='10', autocomplete='off')
-    |     
-    #emaili.inputBox(style='margin-left: 400px;')
-      i.iconfont.icon-youxiang(style='color: orange;')
-      |         
-      input#email(type='text', data-name='nickname', placeholder='请输入邮箱', maxlength='21', autocomplete='off')
-    |     
-    #pasword1.inputBox(style='margin-left: -400px;')
-      i.iconfont.icon-mima(style='color: blueviolet;')
-      |         
-      input#password1(type='text', data-name='nickname', placeholder='请输入密码', maxlength='18', autocomplete='off')
-    |     
-    #passowrd2.inputBox(style='margin-left: 400px;')
-      i.iconfont.icon-mima(style='color: blueviolet;')
-      |         
-      input#password2(type='text', data-name='nickname', placeholder='请再次输入密码', maxlength='18', autocomplete='off')
-    |     
-    #vertifiy.inputBox(style='border-bottom: none;margin-left: -400px;')
-      input#vertifiy(type='text', data-name='nickname', placeholder='请输入验证码', maxlength='4', autocomplete='off')
-      |         
-      i.iconfont.icon-yanzhengma(title='点击获取验证码', style='cursor: pointer;color:mediumseagreen')
-    |     
-    #logingaction.inputBox(style='margin-left: -400px;margin-top:28px;', title='点击登陆')
-      i.iconfont.icon-iconfontfasong
+    form(method='post',action='/user/signUpMess')    
+      #nickName.inputBox(style='margin-left: -400px;')
+        i.iconfont.icon-nicheng(style='color: #3CB371;')
+        |         
+        input#nickname(type='text', data-rule='昵称:required;remote(/user/nickName)' name='nickName' placeholder='请输入昵称', maxlength='10', autocomplete='off')
+      |     
+      #emaili.inputBox(style='margin-left: 400px;')
+        i.iconfont.icon-youxiang(style='color: orange;')
+        |         
+        input#email(type='email', name='email', placeholder='请输入邮箱', maxlength='21', data-rule='邮箱:required;remote(/user/emaliExist)', autocomplete='off')
+      |     
+      #pasword1.inputBox(style='margin-left: -400px;')
+        i.iconfont.icon-mima(style='color: blueviolet;')
+        |         
+        input#password1(type='password', name='password1', placeholder='请输入密码', maxlength='18', autocomplete='off',data-rule='required;password;')
+      |     
+      #passowrd2.inputBox(style='margin-left: 400px;')
+        i.iconfont.icon-mima(style='color: blueviolet;')
+        |         
+        input#password2(type='password', name='password2', placeholder='请再次输入密码', maxlength='18', autocomplete='off',data-rule='password2:required;password;match(password1)')
+      |     
+      #vertifiy.inputBox(style='border-bottom: none;margin-left: -400px;')
+        |         
+        i#yanzheng.iconfont.icon-yanzhengma(title='点击获取验证码' style='display:inline-block;width:80px;')
+        input#vertifiyInput(type='text', name='vertifiy', placeholder='  请输入验证码', maxlength='4', autocomplete='off',data-rule='验证码：required;length(4);remote(/user/verifyMatch)' style='width:200px;')
+      |     
+      #logingaction.inputBox(style='margin-left: -400px;margin-top:28px;',   title='点击登陆')
+        i.iconfont.icon-iconfontfasong
+        input(type='submit',style='width:300px;')
   script(type='text/javascript', src='../javascripts/jquery.js')
   script(type='text/javascript', src='../javascripts/FontRain.js')
   script(type='text/javascript', src='../javascripts/jquery.easing.min.js')
+  script(type='text/javascript', src='../javascripts/ajaxToMess.js')
+  <script type='text/javascript' src="../libs/nice-validator/dist/jquery.validator.js?local=zh-CN"></script>
   script(type='text/javascript').
     $(function() {
-    FontRain.initFontRain(); //文字流背景
-    $("#logoBox").css('display', 'block');
-    var inputs = $(".inputBox");
-    var len = inputs.length;
-    var i = 1;
-    animateOneByOne()
-    function animateOneByOne() {
-    $(inputs[i]).css('display', 'block').animate({
-    marginLeft: 0
-    }, 400, "easeOutBounce", function() {
-    if (i < len) {
-    i++;
-    animateOneByOne();
-    }
-    });
-    }
+      FontRain.initFontRain(); //文字流背景
+      $("#logoBox").css('display', 'block');
+      var inputs = $(".inputBox");
+      var len = inputs.length;
+      var i = 0;
+      animateOneByOne()
+      function animateOneByOne() {
+        $(inputs[i]).css('display', 'block').animate({
+        marginLeft: 0
+        }, 400, "easeOutBounce", function() {
+          if (i < len) {
+          i++;
+          animateOneByOne();
+          }
+        });
+      }
+      userRequest.verfCodeAction();
     });

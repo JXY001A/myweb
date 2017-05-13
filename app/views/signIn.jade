@@ -17,20 +17,22 @@ html
       #logoImg
         img(src='')
       | &#x9;&#x9;&#x9;
-      #email.inputBox(style='margin-left: -800px;')
-        i.iconfont.icon-youxiang(style='color: orange;')
-        | &#x9;&#x9;&#x9;&#x9;
-        input(type='text', autocomplete='off', maxlength='22', placeholder='请输入邮箱……')
-      | &#x9;&#x9;&#x9;
-      | &#x9;&#x9;&#x9;
-      #password.inputBox(style='margin-left: 800px;')
-        i.iconfont.icon-mima(style='color: purple;')
-        | &#x9;&#x9;&#x9;&#x9;
-        input(type='password', autocomplete='off', maxlength='18', placeholder='请输入密码……')
-      | &#x9;&#x9;&#x9;
-      | &#x9;&#x9;&#x9;
-      #loginAction.inputBox(style='margin-top: 28px;margin-left: -800px;', title='点击登录')
-        i.iconfont.icon-iconfontfasong
+      form#formSignIn(method='post',action='/user/signInMess')
+        #email.inputBox(style='margin-left: -800px;')
+          i.iconfont.icon-youxiang(style='color: orange;')
+          | &#x9;&#x9;&#x9;&#x9;
+          input(type="email", autocomplete='off', maxlength='22', placeholder='请输入邮箱……',name="email" data-rule="required;email;remote(/user/emailMatch)")
+        | &#x9;&#x9;&#x9;
+        | &#x9;&#x9;&#x9;
+        #password.inputBox(style='margin-left: 800px;')
+          i.iconfont.icon-mima(style='color: purple;')
+          | &#x9;&#x9;&#x9;&#x9;
+          input(type='password', data-rule="密码: required;password;" autocomplete='off', maxlength='18', placeholder='请输入密码……',name='password')
+        | &#x9;&#x9;&#x9;
+        | &#x9;&#x9;&#x9;
+        #loginAction.inputBox(style='margin-top: 28px;margin-left: -800px;', title='点击登录')
+          i.iconfont.icon-iconfontfasong
+          input(type='submit',style='width:300px;',value='登录')
     | &#x9;&#x9;
     script(type='text/javascript', src='../javascripts/firework-change.js')
     | &#x9;&#x9;
@@ -38,9 +40,12 @@ html
     | &#x9;&#x9;
     script(type='text/javascript', src='../javascripts/jquery.easing.min.js')
     | &#x9;&#x9;
+    <script type='text/javascript' src="../libs/nice-validator/dist/jquery.validator.js?local=zh-CN"></script>
+    <script type='text/javascript' src="../javascripts/ajaxToMess.js"></script>
     script(type='text/javascript').
       $(function(){
-      fireWork.init(document.getElementById("canvas"));
-      $("#logoImg").css("display",'block');
-      $(".inputBox").css("display",'block').animate({marginLeft:0},800,"easeOutBounce");
+        fireWork.init(document.getElementById("canvas"));
+        $("#logoImg").css("display",'block');
+        $(".inputBox").css("display",'block').animate({marginLeft:0},800,"easeOutBounce");
+        userRequest.singInAction($('#formSignIn'));
       });

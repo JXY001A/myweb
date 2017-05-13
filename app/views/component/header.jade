@@ -3,9 +3,41 @@
     h1 &#x634B;&#x7801;&#x535A;&#x5BA2;
     |                 
     p.connectEmail JXY001A@aliyun.com
-    #signInUp
-      a(href='/user/signIn',class='sign') 登录
-      a(href='/user/signUp',class='sign') 注册
+    if user
+      #signUser
+        img(src='#{user.picture}')
+        #userPanel
+          .userHandleList
+            i#rightCom.iconfont.icon-you1
+          .userHeader.userHandleList
+              img(src='#{user.picture}')
+          .userHandleList
+              a.userName(href='javascript:void(0);') #{user.nickName}
+          .userHandleList
+            .btnBox
+              i.iconfont.icon-modify
+              a.btnName(href='javascript:void(0);') 修改信息
+          .userHandleList
+            .btnBox
+              i.iconfont.icon-liulanjilu
+              a.btnName(href='javascript:void(0);') 浏览记录
+          .userHandleList
+            .btnBox
+              i.iconfont.icon-quanxian
+              a.btnName(href='javascript:void(0);') 升级权限
+          .userHandleList
+            .btnBox
+              i.iconfont.icon-shoucang
+              a.btnName(href='javascript:void(0);') 收藏
+          .userHandleList
+            .btnBox
+              i.iconfont.icon-8fuzhi
+              a.btnName(href='javascript:void(0);') 注销
+        script(type='text/javascript',src='../javascripts/userPanel.js')
+    else
+      #signInUp
+        a(href='/user/signIn',class='sign') 登录&nbsp;
+        a(href='/user/signUp',class='sign') 注册
   |             
   #nav_meau
     a.current(href='javascript:void(0)')
