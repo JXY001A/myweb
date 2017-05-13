@@ -26,9 +26,29 @@ module.exports = function(app) {
 	app.get('/blog/:id' , Blog.essayShow);
 	app.get('/blog/essay/Uplaod', Blog.essayUpload);
 
-	// 用户路由控制
+	/*用户路由控制*/
+	// 用户登录页
 	app.get('/user/signIn' , User.signIn);
+	// 用户登陆信息操作
+	app.post('/user/signInMess' , User.signInMess);
+	// 用户邮箱匹配验证
+	app.post('/user/emailMatch',User.emailMatch);
+	// 注册邮箱存在验证
+	app.post('/user/emaliExist' ,User.emailExist);
+	// 用户昵称验证
+	app.post('/user/nickName' , User.nickNameMatch);
+	// 用户注册验证码发送
+	app.get('/user/verification' , User.verficatCodeSend);
+	// 验证码匹配验证
+	app.post('/user/verifyMatch' , User.verifiyCodeMath);
+	// 用户登录密码验证
+	app.post('/user/passwordMatch' , User.passwordMatch);
+	// 用户注销登录
+	app.get('/user/exit',User.userExit);
+	// 用户注册页
 	app.get('/user/signUp' , User.signUp);
+	// 用户注册信息处理
+	app.post('/user/signUpMess' , User.signUpMess);
 
 	// webGL静态资源加载路径
 	app.get('/webGL/:name', Resourse.image);
