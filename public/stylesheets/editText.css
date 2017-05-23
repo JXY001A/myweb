@@ -3,14 +3,22 @@
     margin: 0;
     font-family: '微软雅黑';
 }
-
+div {
+    box-sizing: border-box;
+}
+#body_container {
+    padding: 0 60px;
+    /*width: 1150px;*/
+    max-width: 1150px;
+    margin: 0 auto;
+}
 #title {
     text-align: center;
     margin: 26px auto;
 }
 
 #textEdit {
-    width: 75%;
+    width:75%;
     height: 500px;
     margin: 50px auto;
     max-height: 800px;
@@ -33,12 +41,19 @@
     margin-top: 13px;
     font-size: 13px;
     color: #666;
+    line-height: 26px;
 }
 
 #textEdit .inputBox p {
     padding-bottom: 13px;
 }
-
+#textEdit label{
+    font-size:13px;
+    line-height: 26px;
+}
+#textEdit .categories{
+    margin-left: 13px;
+}
 #submit {
     width: 100%;
     height: 39px;

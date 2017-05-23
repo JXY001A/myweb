@@ -171,13 +171,20 @@ div {
     width: 60%;
     height: 100%;
     margin: 0 auto;
-    position: relative;
+}
+#userPanel  .userHeader{
+    overflow: '';
+}
+#userPanel  .userHeader #headImgBox{
+    width: 100%;
+    height: 100%;
+    display: block;
     overflow: hidden;
 }
-#userPanel  .userHeader > img{
-    width: 70px;
-    height: 70px;
-    border-radius: 35px;
+#userPanel  .userHeader a > img{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
     display: block;
     margin: 0 auto;
 }

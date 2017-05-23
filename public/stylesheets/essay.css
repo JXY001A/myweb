@@ -1,218 +1,247 @@
- #article {
-     width: 100%;
-     min-height: 550px;
- }
- 
- #article #articleTitle {
-     width: 100%;
-     height: 60px;
- }
- 
- #article #articleTitle #title {
-     width: 200px;
-     height: 100%;
-     margin: 0 auto;
- }
- 
- #article #articleMess {
-     width: 100%;
-     height: 40px;
-     border-bottom: solid 1px #28ac73;
- }
- 
- #article #comForm a {
-     color: #28ac73;
- }
- 
- #article #articleMess .articMess {
-     height: 100%;
-     float: left;
-     margin-left: 5px;
-     text-align: left;
-     line-height: 40px;
-     padding-right: 20px;
- }
- 
- #article #articleMess .articMess span {
-     margin-left: 5px;
- }
- 
- #article #artcleContent {
-     margin-top: 13px;
-     text-indent: 26px;
-     width: 100%;
-     height: 200px;
- }
- 
- #comment {
-     width: 100%;
-     height: 100px;
- }
- 
- #comment .commentTitle {
-     width: 100%;
-     height: 40px;
-     line-height: 40px;
-     border-bottom: solid 1px #28ac73;
-     margin-top: 52px;
- }
- 
- #comment #form {
-     margin-top: 13px;
- }
- 
- #comment #form textarea {
-     width: 80%;
-     height: 80px;
-     outline: none;
-     margin: 0 auto;
-     text-indent: 26px;
- }
- 
- #comment #form .inputSub {
-     width: 80%;
-     margin-top: 13px;
- }
- 
- #comment #form .inputSub .submit {
-     width: 120px;
-     height: 32px;
-     border-radius: 3px;
-     background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
-     float: right;
-     cursor: pointer;
-     line-height: 32px;
-     text-align: center;
-     position: relative;
-     overflow: hidden;
- }
- 
- #comment #commentContent {
-     width: 100%;
-     min-height: 200px;
-     padding-bottom: 39px;
- }
- 
- #comment #commentContent .userComment {
-     width: 100%;
-     min-height: 120px;
-     border-bottom: dotted 2px #ccc;
-     margin-top: 26px;
-     padding-bottom: 26px;
- }
- 
- #comment #commentContent .userComment > .commentMess {
-     width: 100%;
-     height: 50px;
- }
- 
- #comment #commentContent .userComment > .commentMess .cMess {
-     float: left;
-     margin-right: 26px;
-     line-height: 50px;
- }
- #comment #commentContent .userComment > .commentMess .cMess i{
-     margin-right: 13px;
- }
- #comment #commentContent .userComment > .commentMess .userImg {
-     width: 50px;
-     height: 50px;
-     border-radius: 25px;
-     overflow: hidden;
- }
- 
- #comment #commentContent .userComment > .commentMess .userImg img {
-     width: 50px;
-     height: 50px;
- }
- 
- #comment #commentContent .userComment > .commentCon {
-     width: 100%;
-     min-height: 60px;
-     position: relative;
- }
- #comment #commentContent .userComment > .commentCon .comm{
- 	text-align: left;
- 	width: 100%;
- 	 line-height: 26px;
-     text-indent: 76px;
- 	border: solid 1px #f4f0f1;
- 	
- }
- #comment #commentContent .userComment > .commentCon .toReply{
-	display: block;
-	width: 60px;
-	height: 26px;
-	position: absolute;
-	bottom: 7px;
-	right: 10px;
-	text-align: center;
-	line-height: 26px;
-	color: #666;
-	 -webkit-transition: all .1s cubic-bezier(0.88, -0.17, 1, 0.98);
+#article {
+    width: 100%;
+    _height: 200px;
+    min-height: 450px
+    /* css 注释：两个放置不分前后顺序，兼容所有浏览器 */
+}
+
+#article #articleTitle {
+    width: 100%;
+    height: 60px;
+    text-align: center;
+}
+
+#article #articleTitle #title {
+    /*width: 200px;*/
+    height: 100%;
+    margin: 0 auto;
+}
+#article #articleTitle #title h1{
+    font-size: 25px;
+    color: #555;
+}
+
+#article #articleMess {
+    width: 100%;
+    height: 40px;
+    border-bottom: solid 1px #28ac73;
+}
+
+#article #comForm a {
+    color: #28ac73;
+}
+
+#article #articleMess .articMess {
+    height: 100%;
+    float: left;
+    margin-left: 5px;
+    text-align: left;
+    line-height: 40px;
+    padding-right: 20px;
+}
+
+#article #articleMess .articMess span {
+    margin-left: 5px;
+}
+
+#article #artcleContent {
+    margin-top: 13px;
+    /*text-indent: 26px;*/
+    width: 100%;
+}
+#article #artcleContent p{
+    white-space: pre;
+    white-space: pre-wrap;
+    /*word-break: break-all;*/
+    /*word-break: keep-all;*/
+    word-wrap: break-word;
+}
+#article #artcleContent p{
+    max-height: 100%;
+}
+#comment {
+    width: 100%;
+    height: 100px;
+                                                                                                  margin-top: 26px;
+}
+
+#comment .commentTitle {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: solid 1px #28ac73;
+    margin-top: 52px;
+}
+
+#comment #form {
+    margin-top: 13px;
+}
+
+#comment #form textarea {
+    width: 80%;
+    height: 80px;
+    outline: none;
+    margin: 0 auto;
+    text-indent: 26px;
+}
+
+#comment #form .inputSub {
+    width: 80%;
+    margin-top: 13px;
+}
+
+#comment #form .inputSub .submit {
+    width: 120px;
+    height: 32px;
+    border-radius: 3px;
+    background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+    float: right;
+    cursor: pointer;
+    line-height: 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#comment #commentContent {
+    width: 100%;
+    min-height: 200px;
+    padding-bottom: 39px;
+}
+
+#comment #commentContent .userComment {
+    width: 100%;
+    min-height: 120px;
+    border-bottom: dotted 2px #ccc;
+    margin-top: 26px;
+    padding-bottom: 26px;
+}
+
+#comment #commentContent .userComment > .commentMess {
+    width: 100%;
+    height: 50px;
+}
+
+#comment #commentContent .userComment > .commentMess .cMess {
+    float: left;
+    margin-right: 26px;
+    line-height: 50px;
+}
+
+#comment #commentContent .userComment > .commentMess .cMess i {
+    margin-right: 13px;
+}
+
+#comment #commentContent .userComment > .commentMess .userImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+#comment #commentContent .userComment > .commentMess .userImg img {
+    width: 50px;
+    height: 50px;
+}
+
+#comment #commentContent .userComment > .commentCon {
+    width: 100%;
+    min-height: 60px;
+    position: relative;
+}
+
+#comment #commentContent .userComment > .commentCon .comm {
+    text-align: left;
+    width: 100%;
+    line-height: 26px;
+    text-indent: 76px;
+    border: solid 1px #f4f0f1;
+}
+
+#comment #commentContent .userComment > .commentCon .toReply {
+    display: block;
+    width: 60px;
+    height: 26px;
+    position: absolute;
+    bottom: 7px;
+    right: 10px;
+    text-align: center;
+    line-height: 26px;
+    color: #666;
+    -webkit-transition: all .1s cubic-bezier(0.88, -0.17, 1, 0.98);
     -moz-transition: all .1s cubic-bezier(0.88, -0.17, 1, 0.98);
     -o-transition: all .1s cubic-bezier(0.88, -0.17, 1, 0.98);
     transition: all .1s cubic-bezier(0.88, -0.17, 1, 0.98);
-	/*display: none;*/
- }
- #comment #commentContent .userComment > .commentCon .toReply:hover{
- 	color: orange;
- 	right:26px;
- }
-#commentContent  .replayBack {
-     width: 100%;
-     min-height: 120px;
-     border:dotted 1px #666;
-     padding: 13px 0 13px 76px;
-     border-radius: 4px;
-     position: relative;
- }
-#commentContent  .replayBack .repCommentMess{
-	width: 100%;
-	height: 50px;
+    /*display: none;*/
 }
-#commentContent  .replayBack .repCommentMess .repCMess{
-	float: left;
-	line-height: 50px;
-	margin-right: 26px;
+
+#comment #commentContent .userComment > .commentCon .toReply:hover {
+    color: orange;
+    right: 26px;
 }
-#commentContent  .replayBack .repCommentMess .repCMess i{
-	margin-right: 13px;
+
+#commentContent .replayBack {
+    width: 100%;
+    min-height: 120px;
+    border: dotted 1px #666;
+    padding: 13px 0 13px 76px;
+    border-radius: 4px;
+    position: relative;
 }
-#commentContent  .replayBack .repCommentMess .repUserImg {
-	width: 50px;
-	height: 50px;
-	border-radius: 25px;
-	overflow: hidden;
+
+#commentContent .replayBack .repCommentMess {
+    width: 100%;
+    height: 50px;
 }
-#commentContent  .replayBack .repCommentMess .repUserImg img{
-	width: 50px;
-	height: 50px;
+
+#commentContent .replayBack .repCommentMess .repCMess {
+    float: left;
+    line-height: 50px;
+    margin-right: 26px;
 }
-#commentContent  .replayBack .repCommentCon{
-	width: 100%;
-	border: solid 1px #f4f0f1;
-	line-height: 50px;
-	text-indent: 76px;
-	position: relative;
+
+#commentContent .replayBack .repCommentMess .repCMess i {
+    margin-right: 13px;
 }
-#commentContent  .replayBack  .reToReply{
-	display: block;
-	width: 60px;
-	height: 26px;
-	text-align: center;
-	line-height: 26px;
-	position: absolute;
-	bottom: 0px;
-	right: 10px;
-	text-align: center;
-	color: #666;
-	 -webkit-transition: all .1s cubic-bezier(0.88, -0.17, 1, 0.98);
+
+#commentContent .replayBack .repCommentMess .repUserImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+#commentContent .replayBack .repCommentMess .repUserImg img {
+    width: 50px;
+    height: 50px;
+}
+
+#commentContent .replayBack .repCommentCon {
+    width: 100%;
+    border: solid 1px #f4f0f1;
+    line-height: 50px;
+    text-indent: 76px;
+    position: relative;
+}
+
+#commentContent .replayBack .reToReply {
+    display: block;
+    width: 60px;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    text-align: center;
+    color: #666;
+    -webkit-transition: all .1s cubic-bezier(0.88, -0.17, 1, 0.98);
     -moz-transition: all .1s cubic-bezier(0.88, -0.17, 1, 0.98);
     -o-transition: all .1s cubic-bezier(0.88, -0.17, 1, 0.98);
     transition: all .1s cubic-bezier(0.88, -0.17, 1, 0.98);
 }
-#commentContent  .replayBack  .reToReply:hover{
-	color: orange;
-	right: 30px;
+
+#commentContent .replayBack .reToReply:hover {
+    color: orange;
+    right: 30px;
 }
