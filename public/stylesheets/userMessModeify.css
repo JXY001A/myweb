@@ -1,0 +1,86 @@
+.messBox {
+    padding: 0 60px;
+    max-width: 1150px;
+    margin: 0 auto;
+    height: 480px;
+}
+
+.messBox .messList li {
+    width: 50%;
+    height: 60px;
+    margin: 0 auto;
+    line-height: 65px;
+}
+
+.messBox .messList li .title {
+    width: 15%;
+    float: left;
+}
+
+.messBox .messList li .content {
+    width: 85%;
+    float: left;
+}
+
+.messBox .messList li .content .userPic {
+    margin-top: 10px;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+}
+.messBox .messList li .content .userMess{
+	/*display: none;*/
+}
+.messBox .messList li .content .userPic img {
+    width: 100%;
+    height: 100%;
+}
+
+.messBox .messList li .content .inputBox{
+	display: none;
+}
+.messBox .messList li .content .userpic .btnSelect{
+	padding: 3px 4px;
+	margin-right: 7px;
+	background: #28ac73;
+	color: #fff;
+}
+.messBox .messList li .content .userpic .select{
+	background: orange;
+}
+.messBox .messList li .content .inputBox input{
+	height: 26px;
+	outline: none;
+	margin-right: 13px; 
+}
+/*.messBox .messList li .content #flieBox {
+    display: none;
+    width: 100px;
+    height: 30px;
+    position: relative;
+}*/
+.messBox .messList .btns .btn{
+	width: 100%;
+	text-align: center;
+}
+.messBox .messList .btns .btn #submit{
+	width:100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity:0;
+}
+.messBox .messList .btns #save{
+	display: none;
+}
+.messBox .messList .btns a{
+	display: inline-block;
+	width: 80px;
+	height: 30px;
+	background:#28ac73;
+	color: #fff;
+	line-height: 30px;
+	margin-right: 13px;
+	position: relative;
+}
