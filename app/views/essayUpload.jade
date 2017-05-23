@@ -3,29 +3,72 @@ html
   head
     title 感谢上传您的文章
     <link rel="stylesheet" type="text/css" href="../../libs/wangEditor/dist/css/wangEditor.min.css">
+    <link rel='stylesheet' type='text/css' href='http://at.alicdn.com/t/font_6mwox7aowdtgwrk9.css'>
     <link rel="stylesheet" type="text/css" href="../../stylesheets/editText.css">
+    <script type="text/javascript" src="../../libs/wangEditor/dist/js/lib/jquery-2.2.1.js"></script>
+    <script type='text/javascript' src="../../libs/nice-validator/dist/jquery.validator.js?local=zh-CN"></script>
     body
-      #title 
-        h2 
-          感谢您为该论坛添砖加瓦
-      #textEdit
-        form(method='post',action='')
-          textarea#text
-            p 请输入内容……
-          div.inputBox
-            p 请输入文章标题
-            input.textInput(type='text',placeholder='请输入文章的标题')
-          div.inputBox
-            p 请输入文章简介
-            input.textInput(type='text',placeholder='请输入文章的简介')
-          #submit
-            .layer 提交
-            input(type='submit',value = '提交')
-
-      <script type="text/javascript" src="../../libs/wangEditor/dist/js/lib/jquery-1.10.2.min.js"></script>
+      #body_container
+        #title 
+          h2 #{title}
+        #textEdit
+          if essay
+            form(method='post',action='/admain/blog/modify')
+              input(type='text',style='display:none;',value='#{essay._id}',name='essayId')
+              textarea(name='content',cols=45)#text
+                p !{essay.content}
+              div.inputBox
+              p 请输入文章标题
+                input.textInput(type='text',placeholder='请输入文章的标题' , name='essayTitli' ,data-rule="required;",value='#{essay.essayTitli}')
+              div.inputBox
+                p 请输入文章简介
+                input.textInput(type='text',placeholder='请输入文章的简介',name='desc' , data-rule="required;",value='#{essay.desc}')
+              div.inputBox
+                p 请输入封面图片地址
+                input.textInput(type='text',placeholder='请输入封面图片地址',name='faceImg',data-rule="required;",value='#{essay.faceImg}')
+              div.inputBox
+                p 选择文章分类
+                #categoryBox
+                  each item in categories
+                    //- essay.category 不是字符串，不能直接用来判断，所以需要先转换为字符串才能比较
+                    if (essay.category.toString() == item._id)
+                      input.categories(type='radio',name='category',id='#{item._id}',data-rule="checked" , value='#{item._id}',style='margin-right:7px;',checked=true)
+                      label(for='#{item._id}') #{item.name}
+                    else
+                      input.categories(type='radio',name='category',id='#{item._id}',data-rule="checked" , value='#{item._id}',style='margin-right:7px;',data-essay='#{essay.category}')
+                      label(for='#{item._id}') #{item.name}
+                  i#addCategory.iconfont.icon-icontianjia(title='点击添加分类', style='margin-left:13px;cursor:pointer;')
+              #submit
+                .layer 提交
+                input(type='submit',value = '提交')
+          else
+            form(method='post',action='/user/essay/Uplaod')
+              textarea(name='essayContent',cols=45)#text
+                p 请输入内容……
+              div.inputBox
+              p 请输入文章标题
+                input.textInput(type='text',placeholder='请输入文章的标题' , name='title' ,data-rule="required;")
+              div.inputBox
+                p 请输入文章简介
+                input.textInput(type='text',placeholder='请输入文章的简介',name='desc' , data-rule="required;")
+              div.inputBox
+                p 请输入封面图片地址
+                input.textInput(type='text',placeholder='请输入封面图片地址',name='poster',data-rule="required;")
+              div.inputBox
+                p 选择文章分类
+                #categoryBox
+                  each item in categories
+                    input.categories(type='radio',name='category',id='#{item._id}',data-rule="checked" , value='#{item._id}',style='margin-right:7px;')
+                    label(for='#{item._id}') #{item.name}
+                  i#addCategory.iconfont.icon-icontianjia(title='点击添加分类', style='margin-left:13px;cursor:pointer;')
+              #submit
+                .layer 提交
+                input(type='submit',value = '提交')
       <script type="text/javascript" src="../../libs/wangEditor/dist/js/wangEditor.min.js"></script>
+      <script type='text/javascript' src='../../javascripts/essayUpload.js'></script>
       script(type='text/javascript').
-        var editor = new wangEditor('text');
+        var text = document.getElementById('text');
+        var editor = new wangEditor(text);
         editor.create();
 
 

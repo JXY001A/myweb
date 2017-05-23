@@ -4,21 +4,22 @@ block content
   // 左侧瀑布流
   #waterFlow-left
     link(href='../stylesheets/essay.css', rel='stylesheet')
+    <link rel="stylesheet" type="text/css" href="../libs/wangEditor/dist/css/wangEditor.min.css">
     #article
       #articleTitle
         #title
-          h1 文章标题
+          h1 #{essay.essayTitli}
       #articleMess
         #auther.articMess
          i.iconfont.icon-articleUser
-         span JXY001
+         span #{user.nickName}
         #articleTime.articMess
           i.iconfont.icon-shijian
-          span 2017-5-9
+          span #{moment(essay.meta.createAt).format('YYYY-MM-DD')}
         #comForm.articMess 来源：
           a(href='javascript:void(0)') www.jxy-java.com
-      #artcleContent.
-        desc
+      // - var essayContent= '#{essay.content}'
+      #artcleContent !{essay.content}
     #comment
       .commentTitle
         h3 说点什么吧..
