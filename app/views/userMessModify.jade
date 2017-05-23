@@ -1,0 +1,51 @@
+extends layout
+block content
+  link(href='../stylesheets/userMessModeify.css' ,rel='stylesheet')
+  .messBox
+    //- enctype="multipart/form-data" 属性允许上传文件数据
+    form#form1(method='post',action='/user/modifyMessSave' , enctype="multipart/form-data")
+      ul.messList
+        li.userHeader
+          .title 头像：
+          .content
+            .userPic
+              img(src='#{user.picture}')
+            .inputBox.userpic
+              input#netWorkInput(type='text',placeholder='网络图片',name='pictureurl')
+              a#fileBox(href='javascript:void(0);' style='display:none;width:200px;')
+                input(type='file' , accept = 'image/*',name='pictureImg' )
+              a.netBtn.btnSelect.select(href='javascript:void(0)') 网络图片
+              a.localBtn.btnSelect(href='javascript:void(0)') 本地图片
+        li.userHeader
+          .title 用户名：
+          .content
+            .userMess JXY001
+            .inputBox
+              input(type='text' value='jxy001',name='userName' ,data-rule='用户名:required;')
+        li.userHeader
+          .title 职业：
+          .content
+            .userMess 软件工程师
+            .inputBox
+              input(type='text',value='软件工程师',name='occupation',data-rule='职业:required;')
+        li.userHeader
+          .title 性别：
+          .content
+            .userMess 男
+            .inputBox
+              input(type='text',value='男',name='sex',data-rule='性别:required;')
+        li.userHeader
+          .title 擅长:
+          .content
+            .userMess 软件编程（java）
+            .inputBox
+              input(type='text',value='软件编程（java）' name='beGoodAt',data-rule='擅长:required;')
+        li.btns 
+          #chang.btn
+            a#modify(href='javascript:void(0)') 修改
+          #save.btn
+            a(href='javascript:void(0)') 保存
+              input#submit(type='submit')
+            a#giveUp(href = 'javascript:void(0)') 放弃
+  <script type='text/javascript' src="../libs/nice-validator/dist/jquery.validator.js?local=zh-CN"></script>
+  script(type='text/javascript' src='../javascripts/userMessModify.js')

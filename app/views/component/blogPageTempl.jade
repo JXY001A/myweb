@@ -1,0 +1,15 @@
+each item in essays
+  tr.item
+   td #{item.essayTitli}
+   td #{item.author.nickName}
+   td #{moment(item.meta.createAt).format('YYYY-MM-DD')}
+   td #{moment(item.meta.updateAt).format('YYYY-MM-DD')}
+   td
+     a.tableBtn(href='/blog/#{item._id}',style='color:#28ac73;')
+       i.iconfont.icon-chakan-copy
+   td 
+     a.tableBtn(href='/blog/essayModify/#{item._id}',style='color:orange;')
+       i.iconfont.icon-modify
+   td 
+     a.tableBtn.deleteItem(href='javascript:void(0)',style='color:red;' , data-itemId = '#{item._id}')
+       i.iconfont.icon-shanchu
