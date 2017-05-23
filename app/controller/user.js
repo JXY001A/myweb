@@ -7,7 +7,12 @@
  * @github:  github.com/JXY001A
  * @version: 1.0
  */
+// 文件上传插件
+var multiparty = require('multiparty');
+var fs = require('fs');
+var Category = require('../modules/category.js'); 
 var User = require('../modules/user.js');
+var Essay = require('../modules/Eassy.js');
 // 用户登陆页
 exports.signIn = function(req, res) {
 		res.render('signIn');
@@ -163,4 +168,42 @@ exports.verifiyCodeMath = function(req, res) {
 	} else {
 		res.send('验证码错误');
 	}
+}
+exports.userMessModify = function(req, res) {
+	res.render('userMessModify');
+}
+// 用户头像上传处理
+exports.saveUserPicture = function(req, res, next) {
+	
+		next();
+}
+// 用户个人信息私改处理
+exports.saveUserMess = function(req, res) {
+	var userMess = req.query;
+	console.log(222);
+	console.log(userMess);
+}
+// 用户博文上传保存
+exports.essayUpload = function(req,res){
+	var user = req.session.user;
+	var essay = req.body;
+	var _essay = new Essay({
+		essayTitli:essay.title,
+		desc:essay.desc,
+		content:essay.essayContent,
+		category:essay.category,
+		author:user._id,
+		faceImg:essay.poster
+	});
+	_essay.save(function(err,result) {
+		if (err) {
+			conosle.log(err);
+		}
+		// 将数据文章数据保存之后，在将文章的id添加至分类表中
+		Category.findById(result.category,function(err,category){
+			category.essaies.push(result._id);
+		});
+		// 上传成功后重定向至文章详情页
+		res.redirect('/blog/'+result._id);
+	});
 }

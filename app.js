@@ -14,7 +14,7 @@ mongooseCon.mogooseConnect();
 // 设置服务器端口号
 var port = 3000;
 var app = express();
-
+app.locals.moment = require('moment');
 // 设置视图文件资源路径
 app.set('views', path.join(__dirname, 'app/views'));
 // 将系统路径保存包本地变量中

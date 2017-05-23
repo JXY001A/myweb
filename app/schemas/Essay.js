@@ -2,11 +2,24 @@
     文章Schema
  */
 var mongoose = require('mongoose');
+var schema  = mongoose.Schema;
+var objectId = schema.Types.ObjectId;
 var essaySchema = new mongoose.Schema({
     essayTitli: String,
     desc: String,
     content: String,
-    faceImg: String,
+    faceImg:{
+        type:String,
+        default:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495506085&di=4f6286e994e57e221c9ec85f6399e4d9&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.qiantucdn.com%2F58pic%2F19%2F04%2F03%2F5672b8750001c_1024.jpg'
+    },
+    author:{
+        type:objectId,
+        ref:'User'
+    },
+    category:{
+        type:objectId,
+        ref:'Category'
+    },
     meta: {
         createAt: {
             type: Date,
@@ -33,7 +46,7 @@ essaySchema.statics = {
     fetch: function(cb) {
             return this
                 .find({})
-                .sort('meta.updateAt')
+                .sort({'meta.updateAt':-1})
                 // 执行回调函数
                 .exec(cb);
     },
@@ -49,7 +62,7 @@ essaySchema.statics = {
     findLimit: function(num, skip, cb) {
         return this
                 .find({})
-                .sort('meta.updateAt')
+                .sort({'meta.updateAt':-1})
                 .skip(skip)
                 .limit(num)
                 .exec(cb);
