@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  each category in categories
+    .classList
+      .classTitle
+        a(href='javascript:void(0);') #{category.name}
+        a(href='javascript:void(0);') (#{category.essaies.length})
+      if category.essaies.length > 5
+        ul.list(style='height:#{5*37}px')
+          - var i=0;
+          each essay in category.essaies
+            - i+=1;
+            li.item
+              a.index(href='javascript:void(0)') #{i}.
+              a.titleContent(href='/blog/#{essay._id}') #{essay.essayTitli}
+              a.updateTime #{moment(essay.meta.updateAt).format('YYYY-MM-DD')}
+      else
+        ul.list
+          - var i=0;
+          each essay in category.essaies
+            - i+=1;
+            li.item
+              a.index(href='javascript:void(0)') #{i}.
+              a.titleContent(href='/blog/#{essay._id}') #{essay.essayTitli}
+              a.updateTime #{moment(essay.meta.updateAt).format('YYYY-MM-DD')}
+      if category.essaies.length > 5
+        .showMore 查看更多
+          i.iconfont.icon-up
+  script(type='text/javascript' src='../../javascripts/categoryList.js')
