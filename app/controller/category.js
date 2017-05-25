@@ -1,16 +1,22 @@
-var category = require('../modules/category.js');
+var Category = require('../modules/category.js');
 var Essay = require('../modules/Eassy.js');
+
 exports.showCategories = function(req, res) {
-	category.fetch(function(err, categories) {
-		if (err) {
-			console.log(err);
-		}
-		var count = 0;
-		categories.forEach(function(category) {
-			var essayArr = category.essaies;
-			var len = essayArr.length;
-			count+=len;
+	
+	Category
+		.find({})
+		.populate({
+			path:'essaies',
+			select:'_id essayTitli meta'
+		})
+		.exec(function(err,categories) {
+			categories.forEach(function(o){
+				o.essaies.sort(function(a,b){
+					return b.meta.updateAt - a.meta.updateAt;
+				});
+			});
+			res.render('categoryList',{
+				categories:categories
+			});
 		});
-		console.log(count);
-	});
 }
