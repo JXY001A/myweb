@@ -22,13 +22,13 @@ module.exports = function(app) {
 	// 首页控制逻辑
 	app.get('/',Index.index);
 
-	// 博客路由控制
+	// 博客路由控制(顺序决定谁会首先被捕获执行)
 	app.get('/blog/index' , Blog.blogIndex);
 	app.get('/blog/essays' , Blog.blogEssays);
+	app.get('/blog/categoryList',Category.showCategories);
 	app.get('/blog/:id' , Blog.essayShow);
 	app.get('/blog/essay/Uplaod', Blog.essayUpload);
 	app.get('/blog/essayModify/:id',Blog.essayModify);
-	app.get('/blog/asdf/category',Category.showCategories);
 	// 添加分类路由
 	app.post('/blog/essay/addCategory', Blog.addCategory);
 
