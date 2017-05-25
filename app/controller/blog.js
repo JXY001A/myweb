@@ -53,7 +53,7 @@ exports.essayShow = function(req, res) {
         User.findById(userId, function(err, userResult) {
             res.render('essay', {
                 essay: essayResult,
-                user: userResult
+                userResult: userResult
             });
         });
     });
@@ -79,6 +79,7 @@ exports.addCategory = function(req, res) {
         if (err) {
             console.log(err);
         }
+        
         res.send(result);
     });
 }
